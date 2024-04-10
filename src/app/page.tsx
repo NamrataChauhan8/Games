@@ -51,76 +51,39 @@ const Home = () => {
   );
 
   return (
-    <div style={{ padding: "20px"}}>
-      <h2 style={{ fontSize: "30px", textAlign: "center" , color:"yellowgreen", marginBottom:"1%"}}><u>Games Arena</u></h2>
+    <div className="p-8">
+      <h2 className="text-3xl text-center text-lime-400 mb-4">Games Arena</h2>
       <input
         type="text"
         placeholder="Search by title"
         value={searchItem}
         onChange={handleSearchChange}
-        style={{
-          color: "white",
-          width: "100%",
-          height: "40px",
-          border: "2px solid yellowgreen",
-          borderRadius: "5px",
-          marginBottom: "20px",
-          padding: "0 10px",
-          background:"transparent",
-        }}
+        className="w-full h-12 border-2 border-lime-300 rounded mb-4 px-4 bg-transparent text-white"
       />
       <button
         onClick={handleSortByPlatform}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "yellowgreen",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          marginBottom: "20px",
-        }}
+        className="px-4 py-2 bg-lime-300 text-black rounded mb-4"
       >
         Sort by Platform {sortedByPlatform ? "(Z-A)" : "(A-Z)"}
       </button>
-      <table style={{ width: "100%", border:"2px solid yellowgreen"}}>
+      <table className="w-full border-2 border-lime-300">
         <thead>
           <tr>
-            <th style={{ border: "1px solid #ddd", padding: "10px" , fontSize:"20px"}}>
-              <u>Title</u>
-            </th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" , fontSize:"20px"}}>
-              <u>Platform</u>
-            </th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" , fontSize:"20px"}}>
-              <u>Score</u>
-            </th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" , fontSize:"20px"}}>
-              <u>Genre</u>
-            </th>
-            <th style={{ border: "1px solid #ddd", padding: "10px" , fontSize:"20px"}}>
-              <u>Editors Choice</u>
-            </th>
+            <th className="border border-lime-300 p-4 text-lg"><u>Title</u></th>
+            <th className="border border-lime-300 p-4 text-lg"><u>Platform</u></th>
+            <th className="border border-lime-300 p-4 text-lg"><u>Score</u></th>
+            <th className="border border-lime-300 p-4 text-lg"><u>Genre</u></th>
+            <th className="border border-lime-300 p-4 text-lg"><u>Editors Choice</u></th>
           </tr>
         </thead>
         <tbody>
           {filteredGames.map((game, index) => (
             <tr key={index}>
-              <td style={{ border: "1px solid #ddd", padding: "10px" }}>
-                {game.title}
-              </td>
-              <td style={{ border: "1px solid #ddd", padding: "10px" }}>
-                {game.platform}
-              </td>
-              <td style={{ border: "1px solid #ddd", padding: "10px" }}>
-                {game.score}
-              </td>
-              <td style={{ border: "1px solid #ddd", padding: "10px" }}>
-                {game.genre}
-              </td>
-              <td style={{ border: "1px solid #ddd", padding: "10px" }}>
-                {game.editors_choice === "Y" ? "Yes" : "No"}
-              </td>
+              <td className="border border-lime-300 p-4">{game.title}</td>
+              <td className="border border-lime-300 p-4">{game.platform}</td>
+              <td className="border border-lime-300 p-4">{game.score}</td>
+              <td className="border border-lime-300 p-4">{game.genre}</td>
+              <td className="border border-lime-300 p-4">{game.editors_choice === "Y" ? "Yes" : "No"}</td>
             </tr>
           ))}
         </tbody>
